@@ -31,3 +31,9 @@
 
 ### yabai + skhd
 - [ ] reset keymaps 
+
+### .sh
+- [ ] add an install .sh
+
+### zsh
+- [ ] split zshenv from .zshrc
