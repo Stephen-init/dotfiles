@@ -1,25 +1,33 @@
 # My coding environment setup
 ---
 
+- [x] transparent wezterm with Catppuccin theme
+- [x] transparent neovin with Catppuccin theme  
+- [x] transparent sketchybar with Catppuccin theme
+- [x] starship with Catppuccin theme
+
+------
+
 ## TO DO:
 ------
 
 ### nvim
 - [x] add surround
 - [x] add todo  
-- [ ] setup venv on mypy - efm server
 - [ ] remove inline lsp, use hover instead
-- [ ] setup keymap
-- [ ] take vim class
+
+### karabiner
+- [ ] add moon lander config
 
 ### sketchybar
-- [ ] use Catppuccin theme
+- [x] use Catppuccin theme
+- [ ] add jira notifications
 
 ### tmux
 - [ ] setup tmux with tmux nvim or tmux-navigator
 
 ### wezterm
-- [ ] keymaps for wezterm
+- [ ] setup keymaps for quick select mode + copy mode
 
 ### yabai + skhd
 - [ ] reset keymaps 
