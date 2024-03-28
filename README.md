@@ -5,8 +5,8 @@
 ------
 
 ### nvim
-- [ ] add surround
-- [ ] add todo  
+- [x] add surround
+- [x] add todo  
 - [ ] setup venv on mypy - efm server
 - [ ] remove inline lsp, use hover instead
 - [ ] setup keymap
