@@ -41,4 +41,8 @@ opt.iskeyword:append("-")
 opt.shortmess:append("c")
 opt.clipboard:append("unnamedplus")
 opt.encoding = "utf-8"
-vim.o.mousemoveevent = true
+-- vim.o.mousemoveevent = true
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = false,
+})
+
