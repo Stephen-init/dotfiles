@@ -65,6 +65,7 @@ vim.keymap.set("n", "<leader>ef", ":Neotree buffers reveal float<CR>", {})
 -- gitsigns
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
+vim.keymap.set("n", "<leader>dv", ":DiffviewFileHistory<CR>", {})
 
 -- lsp
 -- vim.keymap.set('n', '<MouseMove>', require('hover').hover_mouse, { desc = "hover.nvim (mouse)" })
