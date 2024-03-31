@@ -55,7 +55,26 @@ return {
 			local lspconfig = require("lspconfig")
 			lspconfig.tsserver.setup({})
 			lspconfig.html.setup({})
-			lspconfig.lua_ls.setup({})
+			-- lua
+			lspconfig.lua_ls.setup({
+
+				on_attach = on_attach,
+				settings = {
+					Lua = {
+						-- make language server recognize 'vim' global
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							-- make language server aware of runtime files
+							library = {
+								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+								[vim.fn.stdpath("config") .. "/lua"] = true,
+							},
+						},
+					},
+				},
+			})
 
 			lspconfig.pyright.setup({
 				on_attach = on_attach,

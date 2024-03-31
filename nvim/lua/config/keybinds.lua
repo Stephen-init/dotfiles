@@ -28,10 +28,10 @@ keybind("n", "<leader>q", ":wincmd q<CR>") -- close window split
 keybind("n", "<leader>cb", ":enew<bar>bd #<CR>") -- close window, but keep buffer open
 
 -- navigating window splits
-keybind("n", "<C-h>", ":wincmd h<CR>") -- focus left
-keybind("n", "<C-l>", ":wincmd l<CR>") -- focus right
-keybind("n", "<C-k>", ":wincmd k<CR>") -- focus up
-keybind("n", "<C-j>", ":wincmd j<CR>") -- focus down
+keybind("n", "<C-h>", ":TmuxNavigateLeft<CR>")
+keybind("n", "<C-j>", ":TmuxNavigateDown<CR>")
+keybind("n", "<C-k>", ":TmuxNavigateUp<CR>")
+keybind("n", "<C-l>", ":TmuxNavigateRight<CR>")
 
 -- maintain visual selection after changing indent
 keybind("v", "<", "<gv")
@@ -106,4 +106,3 @@ vim.keymap.set("n", "[t", function()
 end, { desc = "Previous todo comment" })
 
 keybind("n", "<leader>td", ":TodoQuickFix<CR>")
-
