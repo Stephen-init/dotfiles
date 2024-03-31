@@ -56,6 +56,7 @@ end)
 vim.keymap.set("n", "<leader>fo", function()
 	require("telescope.builtin").oldfiles()
 end)
+vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
 
 -- neo-tree
 vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal left<CR>", {})
