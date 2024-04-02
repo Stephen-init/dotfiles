@@ -59,8 +59,9 @@ end)
 vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
 
 -- neo-tree
-vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal left<CR>", {})
-vim.keymap.set("n", "<leader>ef", ":Neotree buffers reveal float<CR>", {})
+keybind("n", "<leader>e", ":NvimTreeFindFileToggle<CR>")
+-- vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal left<CR>", {})
+-- vim.keymap.set("n", "<leader>ef", ":Neotree buffers reveal float<CR>", {})
 
 -- gitsigns
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
