@@ -25,7 +25,7 @@ keybind("n", "<leader>s", ":wincmd s<CR>") -- split horizontally
 keybind("n", "<leader>v", ":wincmd v<CR>") -- split vertically
 keybind("n", "<leader>=", ":wincmd =<CR>") -- even out splits
 keybind("n", "<leader>q", ":wincmd q<CR>") -- close window split
-keybind("n", "<leader>cb", ":enew<bar>bd #<CR>") -- close window, but keep buffer open
+keybind("n", "<leader>cb", ":Bdelete<CR>") -- close buffer, but keep window open
 
 -- navigating window splits
 keybind("n", "<C-h>", ":TmuxNavigateLeft<CR>")
