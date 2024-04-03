@@ -116,5 +116,4 @@ shift + lctrl + alt - r : \
     launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 
-cmd + lalt + ctrl - v : open /Applications/Visual\ Studio\ Code.app
-cmd + lalt + ctrl - f : open /Applications/Firefox.app
+
