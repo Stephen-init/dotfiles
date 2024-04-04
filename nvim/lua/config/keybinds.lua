@@ -41,6 +41,9 @@ keybind("v", ">", ">gv")
 keybind("v", "J", ":move '>+1<CR>gv-gv")
 keybind("v", "K", ":move '<-2<CR>gv-gv")
 
+-- debug
+vim.keymap.set("n", "<leader>db", ":nnoremap gp iHi<Esc>")
+--
 -- trouble
 vim.keymap.set("n", "<leader>tt", function()
 	require("trouble").toggle()
