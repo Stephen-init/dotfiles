@@ -49,6 +49,7 @@ config.keys = {
 	{ key = "d", mods = "CMD", action = wezterm.action({ SendString = "\x15" }) },
 	{ key = "LeftArrow", mods = "CMD", action = wezterm.action({ SendString = "\x1bOH" }) },
 	{ key = "RightArrow", mods = "CMD", action = wezterm.action({ SendString = "\x1bOF" }) },
+	-- Clears the scrollback and viewport leaving the prompt line the new first line.
 }
 
 return config
