@@ -28,10 +28,10 @@ keybind("n", "<leader>q", ":wincmd q<CR>") -- close window split
 keybind("n", "<leader>cb", ":Bdelete<CR>") -- close buffer, but keep window open
 
 -- navigating window splits
-keybind("n", "<C-h>", ":TmuxNavigateLeft<CR>")
-keybind("n", "<C-j>", ":TmuxNavigateDown<CR>")
-keybind("n", "<C-k>", ":TmuxNavigateUp<CR>")
-keybind("n", "<C-l>", ":TmuxNavigateRight<CR>")
+--keybind("n", "<C-h>", ":TmuxNavigateLeft<CR>")
+--keybind("n", "<C-j>", ":TmuxNavigateDown<CR>")
+--keybind("n", "<C-k>", ":TmuxNavigateUp<CR>")
+--keybind("n", "<C-l>", ":TmuxNavigateRight<CR>")
 
 -- maintain visual selection after changing indent
 keybind("v", "<", "<gv")
@@ -119,3 +119,17 @@ vim.api.nvim_set_keymap("n", "<C-b>", ':lua require("specs").show_specs()', { no
 -- You can even bind it to search jumping and more, example:
 vim.api.nvim_set_keymap("n", "n", 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "N", 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
+
+-- recommended mappings
+-- resizing splits
+-- these keymaps will also accept a range,
+-- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
+vim.keymap.set("n", "<A-u>", require("smart-splits").resize_left)
+vim.keymap.set("n", "<A-i>", require("smart-splits").resize_down)
+vim.keymap.set("n", "<A-o>", require("smart-splits").resize_up)
+vim.keymap.set("n", "<A-p>", require("smart-splits").resize_right)
+-- moving between splits
+vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
+vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
+vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
+vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
