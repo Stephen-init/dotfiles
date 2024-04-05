@@ -55,6 +55,12 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	},
+	-- Lazy
+	{
+		"dgagn/diagflow.nvim",
+		-- event = 'LspAttach', This is what I use personnally and it works great
+		opts = {},
+	},
 
 	--{
 	--	"mfussenegger/nvim-lint",
