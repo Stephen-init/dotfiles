@@ -44,7 +44,7 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "branch" },
 				lualine_c = {},
 				lualine_x = { clients_lsp, lint_progress, "filetype" },
 				lualine_y = { "progress" },
