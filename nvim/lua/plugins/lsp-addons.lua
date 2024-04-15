@@ -48,7 +48,9 @@ return {
 	{
 		"nvimdev/lspsaga.nvim",
 		config = function()
-			require("lspsaga").setup({ code_action_prompt = { enable = false } })
+			require("lspsaga").setup({ ui = {
+				code_action = "",
+			} })
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter", -- optional

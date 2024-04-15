@@ -3,15 +3,15 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 -- config.bold_brightens_ansi_colors = "No"
 -- config.font = wezterm.font("JetBrains Mono")
-config.font = wezterm.font("MesloLGL Nerd Font")
-config.font_size = 14
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
+config.font_size = 15
 
--- config.window_padding = {
--- 	left = 10,
--- 	right = 10,
--- 	top = 10,
--- 	bottom = 10,
--- }
+config.window_padding = {
+	left = 50,
+	right = 50,
+	top = 50,
+	bottom = 8,
+}
 
 -- Colorscheme
 -- config.color_scheme = "nightfox"
@@ -20,8 +20,9 @@ config.color_scheme = "Catppuccin Mocha"
 
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.85
-
+config.window_background_opacity = 0.5
+config.macos_window_background_blur = 70
+config.text_background_opacity = 0.9
 -- Tab bar
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = true
