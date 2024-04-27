@@ -135,3 +135,7 @@ vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
 vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
 vim.keymap.set("n", "<leader>sa", ":Lspsaga code_action<CR>", {})
 vim.keymap.set("n", "<leader>cp", ":Copilot panel<CR>", {})
+
+-- copilot chat
+vim.keymap.set("n", "<leader>co", ":CopilotChatOpen<CR>", {})
+vim.keymap.set("n", "<leader>cc", ":CopilotChatClose<CR>", {})
