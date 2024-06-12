@@ -113,13 +113,6 @@ end, { desc = "Previous todo comment" })
 
 keybind("n", "<leader>td", ":TodoQuickFix<CR>")
 
--- Press <C-b> to call specs!
-vim.api.nvim_set_keymap("n", "<C-b>", ':lua require("specs").show_specs()', { noremap = true, silent = true })
-
--- You can even bind it to search jumping and more, example:
-vim.api.nvim_set_keymap("n", "n", 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "N", 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
-
 -- recommended mappings
 -- resizing splits
 -- these keymaps will also accept a range,
@@ -139,3 +132,10 @@ vim.keymap.set("n", "<leader>cp", ":Copilot panel<CR>", {})
 -- copilot chat
 vim.keymap.set("n", "<leader>co", ":CopilotChatOpen<CR>", {})
 vim.keymap.set("n", "<leader>cc", ":CopilotChatClose<CR>", {})
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>db",
+	":normal oimport ipdb; ipdb.set_trace()<Esc>",
+	{ noremap = true, silent = true }
+)
