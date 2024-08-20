@@ -6,6 +6,7 @@ return {
 			filters = { dotfiles = false, custom = { "^.git$" } },
 			view = {
 				preserve_window_proportions = false,
+				adaptive_size = true,
 				---
 			},
 			--
