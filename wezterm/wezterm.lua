@@ -20,7 +20,7 @@ config.color_scheme = "Catppuccin Mocha"
 
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 70
 config.text_background_opacity = 0.9
 -- Tab bar
