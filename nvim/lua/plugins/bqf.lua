@@ -1,4 +1,4 @@
 -- better quickfix window
 return {
-	"RRethy/vim-illuminate",
+	"kevinhwang91/nvim-bqf",
 }

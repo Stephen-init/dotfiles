@@ -44,10 +44,6 @@ keybind("v", "K", ":move '<-2<CR>gv-gv")
 -- debug
 vim.keymap.set("n", "<leader>db", ":nnoremap gp iHi<Esc>")
 --
--- trouble
-vim.keymap.set("n", "<leader>tt", function()
-	require("trouble").toggle()
-end)
 
 -- telescope
 vim.keymap.set("n", "<leader>ff", function()
@@ -69,7 +65,7 @@ keybind("n", "<leader>e", ":NvimTreeFindFileToggle<CR>")
 -- gitsigns
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
-vim.keymap.set("n", "<leader>dv", ":DiffviewFileHistory<CR>", {})
+vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory<CR>", {})
 
 -- lsp
 -- vim.keymap.set('n', '<MouseMove>', require('hover').hover_mouse, { desc = "hover.nvim (mouse)" })
@@ -139,3 +135,6 @@ vim.api.nvim_set_keymap(
 	":normal oimport ipdb; ipdb.set_trace()<Esc>",
 	{ noremap = true, silent = true }
 )
+
+-- toggle term
+vim.keymap.set("v", "<leader>st", ":ToggleTermSendVisualLines <T_ID><CR>", {})
