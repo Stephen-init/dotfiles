@@ -17,7 +17,10 @@ config.window_padding = {
 -- config.color_scheme = "nightfox"
 -- config.color_scheme = "Catppuccin Mocha"
 config.color_scheme = "Catppuccin Mocha"
-
+config.colors = {
+	-- The default background color
+	background = "#24273a",
+}
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
