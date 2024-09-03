@@ -65,6 +65,7 @@ keybind("n", "<leader>e", ":NvimTreeFindFileToggle<CR>")
 -- gitsigns
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
+vim.keymap.set("n", "<leader>dt", ":Gitsigns diffthis HEAD~1<CR>", {})
 vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory<CR>", {})
 
 -- lsp
@@ -138,3 +139,12 @@ vim.api.nvim_set_keymap(
 
 -- toggle term
 vim.keymap.set("v", "<leader>st", ":ToggleTermSendVisualLines <T_ID><CR>", {})
+
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
+function _lazygit_toggle()
+	lazygit:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
