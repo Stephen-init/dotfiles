@@ -45,7 +45,7 @@ return {
 		lazy = false,
 		opts = {
 			auto_install = true,
-			ensure_installed = { "lua_ls", "pyright", "tsserver", "html", "ruff_lsp" },
+			ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "ruff_lsp" },
 		},
 	},
 	{
@@ -53,7 +53,7 @@ return {
 		lazy = false,
 		config = function()
 			local lspconfig = require("lspconfig")
-			lspconfig.tsserver.setup({})
+			lspconfig.ts_ls.setup({})
 			lspconfig.html.setup({})
 			-- lua
 			lspconfig.lua_ls.setup({
@@ -106,17 +106,5 @@ return {
 				vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 			end
 		end,
-	},
-	{
-		"linux-cultist/venv-selector.nvim",
-		opts = {},
-		event = "VeryLazy",
-		cmd = { "VenvSelect", "VenvSelectCached" },
-		keys = {
-			-- Keymap to open VenvSelector to pick a venv.
-			{ "<leader>vs", "<cmd>VenvSelect<cr>" },
-			-- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
-			{ "<leader>vc", "<cmd>VenvSelectCached<cr>" },
-		},
 	},
 }
