@@ -19,12 +19,12 @@ config.window_padding = {
 config.color_scheme = "Catppuccin Mocha"
 config.colors = {
 	-- The default background color
-	background = "#24273a",
+	background = "#0e1116",
 }
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 70
+config.window_background_opacity = 0.5
+config.macos_window_background_blur = 50
 config.text_background_opacity = 0.9
 -- Tab bar
 config.tab_bar_at_bottom = true

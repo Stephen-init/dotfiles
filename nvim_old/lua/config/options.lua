@@ -1,13 +1,6 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
-
 local opt = vim.opt
 
 -- Tabs/Indentation
-vim.api.nvim_set_hl(0, "mypurple", { fg = "#c6a0f6" })
-vim.api.nvim_set_hl(0, "myblack", { fg = "#0e1116" })
-
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = -1 -- if negative uses shiftwidth
@@ -50,5 +43,5 @@ opt.clipboard:append("unnamedplus")
 opt.encoding = "utf-8"
 -- vim.o.mousemoveevent = true
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = false,
+	virtual_text = false,
 })
