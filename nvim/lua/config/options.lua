@@ -46,6 +46,5 @@ opt.autochdir = false
 opt.modifiable = true
 opt.iskeyword:append("-")
 opt.shortmess:append("c")
-opt.clipboard:append("unnamedplus")
 opt.encoding = "utf-8"
--- vim.o.mousemoveevent = true
+opt.textwidth = 80
