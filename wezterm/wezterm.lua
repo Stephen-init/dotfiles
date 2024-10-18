@@ -19,7 +19,7 @@ config.window_padding = {
 config.color_scheme = "Catppuccin Mocha"
 config.colors = {
 	-- The default background color
-	background = "#0e1116",
+	background = "#132f4b",
 }
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"

@@ -4,6 +4,7 @@ return {
   config = function()
     local helpers = require("incline.helpers")
     local devicons = require("nvim-web-devicons")
+    local lzicons = LazyVim.config.icons
     require("incline").setup({
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
@@ -13,7 +14,7 @@ return {
         local ft_icon, ft_color = devicons.get_icon_color(filename)
 
         local function get_git_diff()
-          local icons = { removed = " ", changed = " ", added = " " }
+          local icons = { removed = lzicons.git.removed, changed = lzicons.git.modified, added = lzicons.git.added }
           local signs = vim.b[props.buf].gitsigns_status_dict
           local labels = {}
           if signs == nil then
