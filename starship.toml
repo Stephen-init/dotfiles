@@ -47,7 +47,6 @@ mantle = "#1e2030"
 crust = "#181926"
 
 
-
 [git_branch]
 symbol = "󱩡"
 format = '[[ $symbol $branch ](bold fg:lavender)]($style)'
@@ -95,4 +94,9 @@ vimcmd_visual_symbol = '[❮](bold fg:lavender)'
 
 [python]
 symbol = "󰄛 "
-format ="via [${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
+format = "via [${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
+detect_folders = [".venv"]
+
+# [env_var.FIREFLOWER_BASE_STAGING_DIR]
+# default = 'unknown staging'
+# format = "staging_dir [$env_value]($style) "

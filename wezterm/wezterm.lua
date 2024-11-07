@@ -5,7 +5,7 @@ local act = wezterm.action
 -- config.font = wezterm.font("JetBrains Mono")
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
 config.font_size = 15
-
+config.automatically_reload_config = true
 config.window_padding = {
 	left = 50,
 	right = 50,
@@ -16,14 +16,14 @@ config.window_padding = {
 -- Colorscheme
 -- config.color_scheme = "nightfox"
 -- config.color_scheme = "Catppuccin Mocha"
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "catppuccin-mocha"
 config.colors = {
 	-- The default background color
-	background = "#132f4b",
+	background = "#08192d",
 }
 config.enable_tab_bar = true
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 50
 config.text_background_opacity = 0.9
 -- Tab bar
@@ -50,7 +50,6 @@ config.leader = {
 config.switch_to_last_active_tab_when_closing_tab = true
 config.pane_focus_follows_mouse = true
 config.scrollback_lines = 5000
-
 -- session controls
 config.unix_domains = {
 	{

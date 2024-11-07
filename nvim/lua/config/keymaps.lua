@@ -45,8 +45,8 @@ vim.keymap.set("n", "<leader>sa", ":Lspsaga code_action<CR>", {})
 vim.keymap.set("n", "<leader>cp", ":Copilot panel<CR>", {})
 
 -- copilot chat
-vim.keymap.set("n", "<leader>co", ":CopilotChatOpen<CR>", {})
-vim.keymap.set("n", "<leader>cc", ":CopilotChatClose<CR>", {})
+vim.keymap.set("n", "<leader>cO", ":CopilotChatOpen<CR>", {})
+vim.keymap.set("n", "<leader>cC", ":CopilotChatClose<CR>", {})
 
 vim.api.nvim_set_keymap(
   "n",
@@ -54,3 +54,5 @@ vim.api.nvim_set_keymap(
   ":normal oimport ipdb; ipdb.set_trace()<Esc>",
   { noremap = true, silent = true, desc = "python db" }
 )
+
+vim.keymap.set("n", "<leader>bf", require("bafa.ui").toggle, { noremap = true, silent = true, desc = "show buffers" })
