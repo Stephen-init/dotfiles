@@ -10,7 +10,7 @@ config.window_padding = {
 	left = 50,
 	right = 50,
 	top = 50,
-	bottom = 8,
+	bottom = 20,
 }
 
 -- Colorscheme
