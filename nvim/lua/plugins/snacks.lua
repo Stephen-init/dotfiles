@@ -1,11 +1,12 @@
 return {
-  "goolord/alpha-nvim",
-  event = "VimEnter",
-  enabled = true,
-  init = false,
-  opts = function()
-    local dashboard = require("alpha.themes.dashboard")
-    local logo = [[ 
+  "snacks.nvim",
+  opts = {
+    dashboard = {
+      preset = {
+        pick = function(cmd, opts)
+          return LazyVim.pick(cmd, opts)()
+        end,
+        header = [[ 
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⢀⣀⡀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⣿⣿⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -43,61 +44,20 @@ return {
    ░╚═══██╗░░░██║░░░██╔══╝░░██╔═══╝░██╔══██║██╔══╝░░██║╚████║ 
    ██████╔╝░░░██║░░░███████╗██║░░░░░██║░░██║███████╗██║░╚███║ 
    ╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═╝░░╚══╝ 
-    ]]
-
-    dashboard.section.header.val = vim.split(logo, "\n")
-
+    ]],
         -- stylua: ignore
-    dashboard.section.buttons.val = {
-      dashboard.button("r", " " .. " Recent files",    LazyVim.pick("oldfiles")),
-    -- dashboard.button("f", " " .. " Find file",       LazyVim.pick()),
-    -- dashboard.button("g", " " .. " Find text",       LazyVim.pick("live_grep")),
-      dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
-      dashboard.button("c", " " .. " Config",          LazyVim.pick.config_files()),
-      dashboard.button("x", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
-      dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
-      dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
-    }
-    for _, button in ipairs(dashboard.section.buttons.val) do
-      button.opts.hl = "AlphaButtons"
-      button.opts.hl_shortcut = "AlphaShortcut"
-    end
-    dashboard.section.header.opts.hl = "AlphaHeader"
-    dashboard.section.buttons.opts.hl = "AlphaButtons"
-    dashboard.section.footer.opts.hl = "AlphaFooter"
-    dashboard.opts.layout[1].val = 8
-    return dashboard
-  end,
-  config = function(_, dashboard)
-    -- close Lazy and re-open when the dashboard is ready
-    if vim.o.filetype == "lazy" then
-      vim.cmd.close()
-      vim.api.nvim_create_autocmd("User", {
-        once = true,
-        pattern = "AlphaReady",
-        callback = function()
-          require("lazy").show()
-        end,
-      })
-    end
-
-    require("alpha").setup(dashboard.opts)
-
-    vim.api.nvim_create_autocmd("User", {
-      once = true,
-      pattern = "LazyVimStarted",
-      callback = function()
-        local stats = require("lazy").stats()
-        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        dashboard.section.footer.val = "⚡ Neovim loaded "
-          .. stats.loaded
-          .. "/"
-          .. stats.count
-          .. " plugins in "
-          .. ms
-          .. "ms"
-        pcall(vim.cmd.AlphaRedraw)
-      end,
-    })
-  end,
+        ---@type snacks.dashboard.Item[]
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+      },
+    },
+  },
 }

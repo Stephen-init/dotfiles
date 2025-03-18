@@ -34,79 +34,68 @@ return {
     end,
   },
 
-  -- Copilot CMP integration
   {
     {
       "olimorris/codecompanion.nvim",
       dependencies = {
         "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
+        "nvim-treesitter/nvim-treesitter",
       },
       config = function()
         require("codecompanion").setup({
           adapters = {
             chat = {
               copilot = {
-                model = "claude-3-7-sonnet-20250219",
+                model = "claude-3-7-sonnet",
               },
             },
             inline = {
               copilot = {
-                model = "claude-3-7-sonnet-20250219",
+                model = "claude-3-7-sonnet",
               },
             },
           },
-          auto_completion = {
-            -- Enable auto-completion
-            enabled = true,
-            -- Auto-completion options for nvim-cmp
-            accept_word = "<C-f>", -- Key to press to accept a word suggestion
-            accept_line = "<C-l>", -- Key to press to accept a line suggestion
+          display = {
+            action_palette = {
+              width = 95,
+              height = 10,
+              prompt = "Prompt ", -- Prompt used for interactive LLM calls
+              provider = "default", -- default|telescope|mini_pick
+              opts = {
+                show_default_actions = true, -- Show the default actions in the action palette?
+                show_default_prompt_library = true, -- Show the default prompt library in the action palette?
+              },
+            },
           },
-          cmp = {
-            enabled = true,
-            -- Integration with nvim-cmp
-            -- Set this to false if you want to use your own configuration
-            -- for nvim-cmp source
-            updateLazyCmpConfig = true,
-          },
-          context = {
-            -- Configure how much context to include
-            include_cursor_position = true, -- Include cursor position in context
-            language_servers = true, -- Include language server information
-            lines_after = 20, -- Number of lines to include after cursor
-            lines_before = 20, -- Number of lines to include before cursor
-          },
-          default_adapter = {
-            chat = "copilot", -- Set Copilot as default chat adapter
-            inline = "copilot", -- Set Copilot as default inline adapter
-          },
-          keymaps = {
-            -- Define keymaps for different actions
-            next_completion = "<C-n>", -- Go to next completion
-            prev_completion = "<C-p>", -- Go to previous completion
-            accept_completion = "<C-y>", -- Accept the current completion
-            dismiss_completion = "<C-e>", -- Dismiss the current completion
-
-            -- Chat-specific keymaps
-            draft_message = "<leader>cd", -- Draft a new message
-            submit_message = "<C-CR>", -- Submit the current message
-            accept_diff = "<C-y>", -- Accept the diff suggestion
-          },
-          ui = {
-            -- UI configuration options
-            border = "rounded", -- Border style for floating windows
-            chat = {
-              auto_focus = true, -- Automatically focus the chat window when opened
-              auto_scroll = true, -- Automatically scroll to the bottom of the chat
+          strategies = {
+            inline = {
+              keymaps = {
+                accept_change = {
+                  modes = { n = "ga" },
+                  description = "Accept the suggested change",
+                },
+                reject_change = {
+                  modes = { n = "gr" },
+                  description = "Reject the suggested change",
+                },
+              },
             },
           },
         })
-
-        -- Setup keymaps globally
-        vim.keymap.set("n", "<leader>ac", ":CodeCompanionChat<CR>", { desc = "Open Code Companion Chat" })
-        vim.keymap.set("n", "<leader>ct", ":CodeCompanionToggle<CR>", { desc = "Toggle Code Companion inline" })
-        vim.keymap.set("n", "<leader>cr", ":CodeCompanionContextReset<CR>", { desc = "Reset Code Companion context" })
+        vim.keymap.set({ "n", "v" }, "<leader>ac", ":CodeCompanionChat<CR>", { desc = "Open Code Companion Chat" })
+        vim.keymap.set({ "n", "v" }, "<leader>aa", ":CodeCompanionActions<CR>", { desc = "Open Code Companion Prompt" })
+        vim.keymap.set(
+          { "n", "v" },
+          "<leader>at",
+          ":CodeCompanion Toggle<CR>",
+          { desc = "Toggle Code Companion inline" }
+        )
+        vim.keymap.set(
+          { "n", "v" },
+          "<leader>ar",
+          ":CodeCompanionContextReset<CR>",
+          { desc = "Reset Code Companion context" }
+        )
       end,
     },
   },

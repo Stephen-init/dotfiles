@@ -7,12 +7,9 @@ local function keybind(mode, key, action, desc)
   vim.api.nvim_set_keymap(mode, key, action, { noremap = true, silent = true, desc = desc })
 end
 
--- nvimtree
-keybind("n", "<leader>e", ":NvimTreeFindFileToggle<CR>", "Nvim Tree")
-
 -- tab to switch buffers in normal mode
-keybind("n", "<Tab>", ":bnext<CR>", "next buffer") -- next buffer
-keybind("n", "<S-Tab>", ":bprevious<CR>", "prev buffer") -- prev buffer
+-- keybind("n", "<Tab>", ":bnext<CR>", "next buffer") -- next buffer
+-- keybind("n", "<S-Tab>", ":bprevious<CR>", "prev buffer") -- prev buffer
 
 -- close
 vim.api.nvim_set_keymap("n", "<leader>q", ":wincmd q<CR>", { noremap = true, silent = true, desc = "close window" })
@@ -45,8 +42,8 @@ vim.keymap.set("n", "<leader>sa", ":Lspsaga code_action<CR>", {})
 vim.keymap.set("n", "<leader>cp", ":Copilot panel<CR>", {})
 
 -- copilot chat
-vim.keymap.set("n", "<leader>cO", ":CopilotChatOpen<CR>", {})
-vim.keymap.set("n", "<leader>cC", ":CopilotChatClose<CR>", {})
+-- vim.keymap.set("n", "<leader>cO", ":CopilotChatOpen<CR>", {})
+-- vim.keymap.set("n", "<leader>cC", ":CopilotChatClose<CR>", {})
 
 vim.api.nvim_set_keymap(
   "n",
