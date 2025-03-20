@@ -5,4 +5,8 @@ return {
     "mfussenegger/nvim-dap",
     enabled = false,
   },
+  {
+    "zbirenbaum/copilot-cmp",
+    enabled = false,
+  },
 }

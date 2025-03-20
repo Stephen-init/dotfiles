@@ -53,22 +53,6 @@ return {
       return "󰕮 " .. table.concat(available, ", ")
     end
 
-    local toggleterm_status = function()
-      local ok, toggleterm = pcall(require, "toggleterm.terminal")
-      if not ok then
-        return ""
-      end
-      local active_terms = {}
-      -- Corrected line: fixed function name and loop variables
-      for _, term in pairs(toggleterm.get_all()) do
-        if term:is_open() then
-          -- Use explicit display names based on IDs
-          table.insert(active_terms, "Term" .. term.id)
-        end
-      end
-      return #active_terms > 0 and " " .. table.concat(active_terms, ", ") or ""
-    end
-
     opts.component_separators = { left = "", right = "" }
     opts.section_separators = { left = "", right = "" }
 
@@ -76,9 +60,21 @@ return {
       lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = {}, -- Explicitly empty
-      lualine_x = { clients_lsp, lint_progress, formatters, toggleterm_status, "filetype" },
+      lualine_x = { clients_lsp, lint_progress, formatters, "filetype" },
       lualine_y = { "progress" },
       lualine_z = { "location" },
     }
+
+    table.insert(
+      opts.sections.lualine_x,
+      2,
+      LazyVim.lualine.status(LazyVim.config.icons.kinds.Copilot, function()
+        local clients = package.loaded["copilot"] and LazyVim.lsp.get_clients({ name = "copilot", bufnr = 0 }) or {}
+        if #clients > 0 then
+          local status = require("copilot.api").status.data.status
+          return (status == "InProgress" and "pending") or (status == "Warning" and "error") or "ok"
+        end
+      end)
+    )
   end,
 }
