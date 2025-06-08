@@ -1,0 +1,8 @@
+# APPS #
+# Show date
+alt - d : osascript ~/.config/skhd/applescripts/pop.scpt
+
+
+# Ghostty
+#
+alt - w : open -n -a "/Applications/WezTerm.app"
