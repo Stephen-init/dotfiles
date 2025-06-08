@@ -90,8 +90,8 @@ brew install khal || echo "Warning: Failed to install khal. Continuing with othe
 echo "Installing lazygit..."
 brew install lazygit || echo "Warning: Failed to install lazygit. Continuing with others."
 
-echo "Installing node (includes npm)..."
-brew install node || echo "Warning: Failed to install node. Continuing with others."
+echo "Installing npm (includes npm)..."
+brew install npm || echo "Warning: Failed to install npm. Continuing with others."
 
 echo "Installing lazydocker..."
 brew install lazydocker || echo "Warning: Failed to install lazydocker. Continuing with others."
