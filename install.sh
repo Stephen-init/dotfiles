@@ -109,7 +109,7 @@ echo "Installing git..."
 brew install git || echo "Warning: Failed to install git. Continuing with others."
 
 echo "Installing aerospace..."
-brew install aerospace || echo "Warning: Failed to install aerospace. Continuing with others."
+brew install --cask nikitabobko/tap/aerospace || echo "Warning: Failed to install aerospace. Continuing with others."
 
 echo "Installing border (from FelixKratz/formulae)..."
 brew install border || echo "Warning: Failed to install border. Continuing with others."
