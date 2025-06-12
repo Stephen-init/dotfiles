@@ -94,15 +94,6 @@ brew install --cask font-jetbrains-mono-nerd-font || echo "Warning: Failed to in
 echo "Installing Orbstack..."
 brew install --cask orbstack || echo "Warning: Failed to install orbstack. Continuing with others."
 
-# --- install oh my zsh
-echo -e "\n--- Installing Oh My Zsh ---"
-if [ ! -d "<span class="math-inline">HOME/\.oh\-my\-zsh" \]; then
-# Use non-interactive install (RUNZSH=no) to prevent it from auto-starting zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  echo "Oh My Zsh installed."
-else
-  echo "Oh My Zsh is already installed. Skipping."
-fi
 
 # install oh my zsh plugin 
 echo -e "\n--- Installing Oh My Zsh Plugins ---"
