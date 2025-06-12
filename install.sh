@@ -67,6 +67,9 @@ brew install lazygit || echo "Warning: Failed to install lazygit. Continuing wit
 echo "Installing npm (includes npm)..."
 brew install npm || echo "Warning: Failed to install npm. Continuing with others."
 
+echo "Installing jq..."
+brew install jq || echo "Warning: Failed to install jq. Continuing with others."
+
 echo "Installing lazydocker..."
 brew install lazydocker || echo "Warning: Failed to install lazydocker. Continuing with others."
 
