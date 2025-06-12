@@ -16,6 +16,9 @@ if ! brew tap | grep -q "felixkratz/formulae"; then
     exit 1
   }
   echo "Tapped FelixKratz/formulae."
+  brew install jesseduffield/lazygit/lazygit
+  echo "Tapped jesseduffield/lazygit/lazygit."
+
 else
   echo "FelixKratz/formulae already tapped. Skipping."
 fi
@@ -91,17 +94,22 @@ echo -e "\n--- Installing Homebrew Casks (GUI apps and fonts) ---"
 echo "Installing JetBrains Mono Nerd Font..."
 brew install --cask font-jetbrains-mono-nerd-font || echo "Warning: Failed to install font-jetbrains-mono-nerd-font. Continuing with others."
 
+echo "Installing sketchybar App Font for Icons"
+brew install --cask font-sketchybar-app-font || echo "Warning: Failed to install font-sketchybar-app-font. Continuing with others."
+
 echo "Installing Orbstack..."
 brew install --cask orbstack || echo "Warning: Failed to install orbstack. Continuing with others."
 
-
-# install oh my zsh plugin 
+# install oh my zsh plugin
 echo -e "\n--- Installing Oh My Zsh Plugins ---"
 
 # zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
-  git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || { echo "Error: Failed to clone zsh-autosuggestions. Aborting."; exit 1; }
+  git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || {
+    echo "Error: Failed to clone zsh-autosuggestions. Aborting."
+    exit 1
+  }
   echo "zsh-autosuggestions installed."
 else
   echo "zsh-autosuggestions already installed. Skipping."
@@ -110,7 +118,10 @@ fi
 # zsh-syntax-highlighting
 echo "Installing zsh-syntax-highlighting..."
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || { echo "Error: Failed to clone zsh-syntax-highlighting. Aborting."; exit 1; }
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || {
+    echo "Error: Failed to clone zsh-syntax-highlighting. Aborting."
+    exit 1
+  }
   echo "zsh-syntax-highlighting installed."
 else
   echo "zsh-syntax-highlighting already installed. Skipping."

@@ -25,10 +25,20 @@ This setup script is for fresh macOS installs. It installs all required CLI/GUI 
 
 ### ✅ Requirements
 
-- macOS (Intel or Apple Silicon)
-- [Xcode Command Line Tools](https://developer.apple.com/xcode/)
+- macOS
 - Internet access
+- Homebrew Installed
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+- Oh my Zsh! Installed
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 - Git installed
+```bash 
+brew install git
+```
 
 ---
 
@@ -45,7 +55,6 @@ chmod +x install.sh
 
 This script will:
 
-Install or update Homebrew
 Tap required repositories
 Install CLI tools, fonts, and GUI apps
 Stow dotfiles into ~/.config/<toolname>/ (e.g. ~/.config/nvim)
