@@ -100,16 +100,17 @@ echo -e "\n--- Installing Oh My Zsh Plugins ---"
 
 # zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
-if [ ! -d "${ZSH_CUSTOM:-<span class="math-inline">HOME/\.oh\-my\-zsh/custom\}/plugins/zsh\-autosuggestions" \]; then</9\>
-git clone \[https\://github\.com/zsh\-users/zsh\-autosuggestions\]\(https\://github\.com/zsh\-users/zsh\-autosuggestions\)</10\> "</span>{ZSH_CUSTOM:-<span class="math-inline">HOME/\.oh\-my\-zsh/custom\}/plugins/zsh\-autosuggestions" \|\| \{ echo "Error\: Failed to clone zsh\-autosuggestions\. Aborting\."; exit 1; \}
-echo "zsh\-autosuggestions installed\."
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || { echo "Error: Failed to clone zsh-autosuggestions. Aborting."; exit 1; }
+  echo "zsh-autosuggestions installed."
 else
-echo "zsh\-autosuggestions already installed\. Skipping\."
+  echo "zsh-autosuggestions already installed. Skipping."
 fi
-\# zsh\-syntax\-highlighting
-echo "Installing zsh\-syntax\-highlighting\.\.\."
-<11\>if \[ \! \-d "</span>{ZSH_CUSTOM:-<span class="math-inline">HOME/\.oh\-my\-zsh/custom\}/plugins/zsh\-syntax\-highlighting" \]; then
-git clone \[https\://github\.com/zsh\-users/zsh\-syntax\-highlighting\.git\]\(<12\>https\://github\.com/zsh\-users/zsh\-syntax\-highlighting\.git\)</11\> "</span>{ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || { echo "Error: Failed to clone zsh-syntax-highlighting. Aborting."; exit 1; }
+
+# zsh-syntax-highlighting
+echo "Installing zsh-syntax-highlighting..."
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || { echo "Error: Failed to clone zsh-syntax-highlighting. Aborting."; exit 1; }
   echo "zsh-syntax-highlighting installed."
 else
   echo "zsh-syntax-highlighting already installed. Skipping."
