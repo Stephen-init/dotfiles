@@ -97,8 +97,7 @@ brew install --cask orbstack || echo "Warning: Failed to install orbstack. Conti
 # --- install oh my zsh
 echo -e "\n--- Installing Oh My Zsh ---"
 if [ ! -d "<span class="math-inline">HOME/\.oh\-my\-zsh" \]; then
-\# Use non\-interactive install \(RUNZSH\=no\) to prevent it from auto\-starting zsh
-\# and messing with the script flow\.
+# Use non-interactive install (RUNZSH=no) to prevent it from auto-starting zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "Oh My Zsh installed."
 else
