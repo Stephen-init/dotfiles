@@ -7,35 +7,6 @@ set -e
 echo "--- Comprehensive Dotfiles Setup and Software Installation Script ---"
 echo "Starting installation process..."
 
-# 1. Install Homebrew (if not already installed)
-echo -e "\n--- Installing Homebrew (if not already installed) ---"
-if ! command_exists brew; then
-  echo "Homebrew not found. Installing Homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || {
-    echo "Error: Homebrew installation failed. Aborting."
-    exit 1
-  }
-
-  # Set up Homebrew PATH for the current script session
-  # This is crucial so subsequent 'brew' commands work immediately.
-  if [ -d "/opt/homebrew" ]; then # For Apple Silicon Macs
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  elif [ -d "/usr/local/homebrew" ]; then # For Intel Macs
-    eval "$(/usr/local/homebrew/bin/brew shellenv)"
-  else
-    # Fallback/generic path setup. `brew shellenv` should find itself if just installed.
-    eval "$(brew shellenv)" || {
-      echo "Error: Failed to set Homebrew environment variables. Please check your Homebrew installation. Aborting."
-      exit 1
-    }
-  fi
-  echo "Homebrew installed and paths set for current session."
-else
-  echo "Homebrew is already installed. Updating and upgrading existing packages..."
-  brew update || { echo "Warning: Homebrew update failed. Continuing anyway."; }
-  brew upgrade || { echo "Warning: Homebrew upgrade failed. Continuing anyway."; }
-fi
-
 # 2. Tap custom Homebrew repositories (must be done before installing packages from them)
 echo -e "\n--- Tapping custom Homebrew repositories ---"
 # Check if tap is already installed before trying to tap
@@ -105,9 +76,6 @@ brew install fzf || echo "Warning: Failed to install fzf. Continuing with others
 echo "Installing starship..."
 brew install starship || echo "Warning: Failed to install starship. Continuing with others."
 
-echo "Installing git..."
-brew install git || echo "Warning: Failed to install git. Continuing with others."
-
 echo "Installing aerospace..."
 brew install --cask nikitabobko/tap/aerospace || echo "Warning: Failed to install aerospace. Continuing with others."
 
@@ -131,7 +99,7 @@ echo -e "\n--- Installing Oh My Zsh ---"
 if [ ! -d "<span class="math-inline">HOME/\.oh\-my\-zsh" \]; then
 \# Use non\-interactive install \(RUNZSH\=no\) to prevent it from auto\-starting zsh
 \# and messing with the script flow\.
-RUNZSH\=no <8\>sh \-c "</span>(curl -fsSL [https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh](https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh))" || { echo "Error: Failed to install Oh My Zsh. Aborting."; exit 1; }
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "Oh My Zsh installed."
 else
   echo "Oh My Zsh is already installed. Skipping."
